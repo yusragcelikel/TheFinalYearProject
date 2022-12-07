@@ -2,38 +2,51 @@ from tkinter import *
 import cv2
 #import mediapipe as mp
 
-print("Press 1 to SAVE process.")
-print("Press 2 to RECOGNIZE process.")
-process_chose = input()
+
+#-------------the selected chose---------------
+print("Press 1 for the SAVE process.")
+print("Press 2 for the RECOGNIZE process.")
+process_chose = int(input())
+#print(process_chose)
+#-------------the selected chose---------------
+
+if process_chose == 1:
+
+    password = int(input("Please enter the admin password: "))
+
+    if password == 0000:
+        print("Access Granted!")
+
+        cap = cv2.VideoCapture(0)  # video objectimizi oluşturduk
+        print("press ESC to close")
+        print("press SPACE to save image")
+        img_counter = 0
+
+        while True:
+            success, img = cap.read()
+
+            if img_counter == 3:
+                exit()  # 3 tane image capture edildiğinde programı kapatır.
+
+            cv2.imshow("Image", img)  # kamera görüntüsü image adlı pencerede gosterilir
+            k = cv2.waitKey(1)
+
+            if k % 256 == 27:
+                break
+            elif k % 256 == 32:
+                #        print("Please type the image name: ")
+                #        img_name = input("Please type the image name: ")
+
+                imageFullName = ("imageName{}.png".format(img_counter))
+                cv2.imwrite(imageFullName, img)
+                print("image captured")
+                img_counter += 1
+
+        #    cv2.waitKey(1)
 
 
 
-cap = cv2.VideoCapture(0) #video objectimizi oluşturduk
-print("press ESC to close")
-print("press SPACE to save image")
-img_counter = 0
 
-
-while True:
-    success, img = cap.read()
-
-    if img_counter == 3:
-        exit()
-
-    cv2.imshow("Image", img)  # kamera görüntüsü image adlı pencerede gosterilir
-    k = cv2.waitKey(1)
-
-    if k%256 == 27:
-        break
-    elif k%256 == 32:
-#        print("Please type the image name: ")
-#        img_name = input("Please type the image name: ")
-        imageFullName = ("imageName{}.png".format(img_counter))
-        cv2.imwrite(imageFullName, img)
-        print("image captured")
-        img_counter += 1
-
-#    cv2.waitKey(1)
 
 
 
