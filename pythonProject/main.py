@@ -1,3 +1,4 @@
+import os.path
 from tkinter import *
 import cv2
 #import mediapipe as mp
@@ -13,6 +14,18 @@ process_choice = int(input())
 if process_choice == 1:
 
     password = int(input("Please enter the admin password: "))
+    password_counter = 0
+
+#    while password != 0000:
+#        print("You\'ve entered the wrong password! Try again.")
+#        password_counter += 1
+#        password = int(input("Please enter the admin password: "))
+#
+#        if password_counter == 3:
+
+#            print("You\'ve tried 3 times. Program shutting down.")
+#            exit()
+
 
     if password == 0000:
         print("Access Granted!")
@@ -32,17 +45,22 @@ if process_choice == 1:
             k = cv2.waitKey(1)
 
             if k % 256 == 27:
-                break
-            elif k % 256 == 32:
+                break #esc tuşuna basıldığında kamera penceresi kapanacak
+            elif k % 256 == 32: #boşluk tuşuna basıldığında image capture edilecek
                 #        print("Please type the image name: ")
                 #        img_name = input("Please type the image name: ")
 
-                imageFullName = ("imageName{}.png".format(img_counter))
-                cv2.imwrite(imageFullName, img)
+#                imageFullName = ("imageName{}.png".format(img_counter))
+#                cv2.imwrite(imageFullName, img)
+#                cv2.imread(imageFullName, img)
+                path = "C:/Users/oguz9/Documents/GitHub/TheFinalYearProject/pythonProject/checkin_folder"
+                cv2.imwrite(os.path.join(path, "imageName{}.png".format(img_counter)), img)
+
                 print("image captured")
                 img_counter += 1
 
         #    cv2.waitKey(1)
+
 
 elif process_choice == 2:
     print("You choice is Recognize process")
