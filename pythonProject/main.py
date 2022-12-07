@@ -6,11 +6,11 @@ import cv2
 #-------------the selected chose---------------
 print("Press 1 for the SAVE process.")
 print("Press 2 for the RECOGNIZE process.")
-process_chose = int(input())
-#print(process_chose)
+process_choice = int(input())
+#print(process_choice)
 #-------------the selected chose---------------
 
-if process_chose == 1:
+if process_choice == 1:
 
     password = int(input("Please enter the admin password: "))
 
@@ -44,8 +44,12 @@ if process_chose == 1:
 
         #    cv2.waitKey(1)
 
+elif process_choice == 2:
+    print("You choice is Recognize process")
 
-
+else:
+    print("You punched an invalid number.")
+    exit()
 
 
 
