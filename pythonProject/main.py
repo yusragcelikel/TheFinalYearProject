@@ -38,8 +38,8 @@ if process_choice == 1:
         while True:
             success, img = cap.read()
 
-            if img_counter == 3:
-                exit()  # 3 tane image capture edildiğinde programı kapatır.
+            if img_counter == 1:
+                exit()  # 1 tane image capture edildiğinde programı kapatır.
 
             cv2.imshow("Image", img)  # kamera görüntüsü image adlı pencerede gosterilir
             k = cv2.waitKey(1)
@@ -56,9 +56,12 @@ if process_choice == 1:
                 path = "C:/Users/oguz9/Documents/GitHub/TheFinalYearProject/pythonProject/checkin_folder"
                 cv2.imwrite(os.path.join(path, "imageName{}.png".format(img_counter)), img)
 
-                print("image captured")
+                print("Image Successfully Captured.")
                 img_counter += 1
 
+                if  #image saved_object'te kayıtlı değilse(recognition yapacak) görüntüyü checkin
+                    #dosyasından saved_ob. dosyanına kaydedip checkin'i temizleyecek
+                else #saved_object'te kayıtlı görüntünün ismi ekrana basılıp merhaba ... yazacak, checkin'i temizleyecek.
         #    cv2.waitKey(1)
 
 
