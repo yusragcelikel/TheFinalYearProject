@@ -33,18 +33,19 @@ if process_choice == 1:
                 if img_counter == 1:
                     exit()  # 1 tane image capture edildiğinde programı kapatır.
 
-                cv2.imshow("Image", img)  # kamera görüntüsü image adlı pencerede gosterilir
-                k = cv2.waitKey(1)
+                else:
+                    cv2.imshow("Image", img)  # kamera görüntüsü image adlı pencerede gosterilir
+                    k = cv2.waitKey(1)
 
-                if k % 256 == 27:
-                    break  # esc tuşuna basıldığında kamera penceresi kapanacak
+                    if k % 256 == 27:
+                        break  # esc tuşuna basıldığında kamera penceresi kapanacak
 
-                elif k % 256 == 32:
-                    path = "C:/Users/oguz9/Documents/GitHub/TheFinalYearProject/pythonProject/saved_subjects"
-                    cv2.imwrite(os.path.join(path, "{}.png".format(img_name)), img)
+                    elif k % 256 == 32:
+                        path = "C:/Users/oguz9/Documents/GitHub/TheFinalYearProject/pythonProject/saved_subjects"
+                        cv2.imwrite(os.path.join(path, "{}.png".format(img_name)), img)
 
-                    print("Image Successfully Captured and Saved.")
-                    img_counter += 1
+                        print("Image Successfully Captured and Saved.")
+                        img_counter += 1
 
             break
         else:
@@ -68,20 +69,21 @@ elif process_choice == 2:
         if img_counter_for_recognize == 1:
             exit()  # 1 tane image capture edildiğinde programı kapatır.
 
-        cv2.imshow("Image", img)  # kamera görüntüsü image adlı pencerede gosterilir
-        k = cv2.waitKey(1)
+        else:
+            cv2.imshow("Image", img)  # kamera görüntüsü image adlı pencerede gosterilir
+            k = cv2.waitKey(1)
 
-        if k % 256 == 27:
-            break  # esc tuşuna basıldığında kamera penceresi kapanacak
+            if k % 256 == 27:
+                break  # esc tuşuna basıldığında kamera penceresi kapanacak
 
-        elif k % 256 == 32:
-            path = "C:/Users/oguz9/Documents/GitHub/TheFinalYearProject/pythonProject/checkin_folder"
-            cv2.imwrite(os.path.join(path, "imageName{}.png".format(img_recognize_name)), img)
+            elif k % 256 == 32:
+                path = "C:/Users/oguz9/Documents/GitHub/TheFinalYearProject/pythonProject/checkin_folder"
+                cv2.imwrite(os.path.join(path, "{}.png".format(img_recognize_name)), img)
 
-            print("Image Successfully Captured.")
-            img_counter_for_recognize += 1
+                print("Image Successfully Captured.")
+                img_counter_for_recognize += 1
 
-        break
+                break
 
 else:
     print("You\'ve punched an invalid number.")
@@ -108,4 +110,3 @@ else:
 #
 #test = OpenWindow()
 #-------------------------------------------------------------------------------
-
