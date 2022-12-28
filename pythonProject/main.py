@@ -83,6 +83,10 @@ elif process_choice == 2:
                 print("Image Successfully Captured.")
                 img_counter_for_recognize += 1
 
+                # -------image recognition kısmı------
+
+                # -------image recognition kısmı------
+
                 break
 
 else:
